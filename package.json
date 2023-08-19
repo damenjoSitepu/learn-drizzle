@@ -28,7 +28,7 @@
     },
     "scripts": {
         "format": "npx prettier --write \"**/*.*\"",
-        "dev": "tsc-watch --onSuccess=\"node ./dist/index.js\"",
+        "dev": "tsc-watch --onSuccess \"node ./dist/index.js\"",
         "build": "tsc",
         "postinstall": "yarn run build"
     },
