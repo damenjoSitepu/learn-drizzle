@@ -27,7 +27,10 @@
         "typescript": "^5.1.6"
     },
     "scripts": {
-        "format": "npx prettier --write \"**/*.*\""
+        "format": "npx prettier --write \"**/*.*\"",
+        "dev": "tsc-watch --onSuccess=\"node ./dist/index.js\"",
+        "build": "tsc",
+        "postinstall": "yarn run build"
     },
     "_moduleAliases": {
         "@": "dist"
