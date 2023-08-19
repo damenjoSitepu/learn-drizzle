@@ -1,16 +1,16 @@
 {
-    "name": "learn-drizzle",
-    "version": "1.0.0",
-    "main": "index.js",
-    "author": "Damenjo Sitepu <damenstory@gmail.com>",
-    "license": "MIT",
-    "dependencies": {
-        "module-alias": "^2.2.3"
-    },
-    "devDependencies": {
-        "prettier": "^3.0.2"
-    },
-    "scripts": {
-        "format": "npx prettier --write \"**/*.*\""
-    }
+  "name": "learn-drizzle",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Damenjo Sitepu <damenstory@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "module-alias": "^2.2.3"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.2"
+  },
+  "scripts": {
+    "format": "npx prettier --write \"**/*.*\""
+  }
 }
