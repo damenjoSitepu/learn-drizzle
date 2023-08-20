@@ -33,7 +33,15 @@
         "format": "npx prettier --write \"**/*.*\"",
         "dev": "tsc-watch --onSuccess \"node ./dist/index.js\"",
         "build": "tsc",
-        "postinstall": "yarn run build"
+        "postinstall": "yarn run build",
+        "mysql-migrate": "drizzle-kit generate:mysql --config=mysql.config.ts",
+        "mysql-push": "drizzle-kit push:mysql --config=mysql.config.ts",
+        "mysql-drop": "drizzle-kit drop --config=mysql.config.ts",
+        "mysql-introspect": "drizzle-kit introspect:mysql --config=mysql.config.ts",
+        "mysql-check": "drizzle-kit check:mysql --config=mysql.config.ts",
+        "mysql-up": "drizzle-kit up:mysql --config=mysql.config.ts",
+        "mysql-rollback": "drizzle-kit rollback:mysql --config=mysql.config.ts",
+        "mysql-run": "drizzle-kit studio --port 4000 --verbose --config=mysql.config.ts"
     },
     "_moduleAliases": {
         "@": "dist"

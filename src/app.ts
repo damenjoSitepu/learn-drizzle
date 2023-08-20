@@ -3,6 +3,7 @@ import Controller from "@/utils/interfaces/controller.interface";
 import helmet from "helmet";
 import cors from "cors";
 import { drizzle } from "drizzle-orm/mysql2";
+import { migrate } from "drizzle-orm/mysql2/migrator";
 import _mysql from "mysql2/promise";
 import "dotenv/config";
 
@@ -57,6 +58,7 @@ class App {
             database: process.env.APP_DATABASE_NAME
         });
         const database = drizzle(connection);
+        await migrate(database, { migrationsFolder: "drizzle" });
     }
 
     /**
