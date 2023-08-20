@@ -2,6 +2,9 @@ import express, { Application, json, urlencoded } from "express";
 import Controller from "@/utils/interfaces/controller.interface";
 import helmet from "helmet";
 import cors from "cors";
+import { drizzle } from "drizzle-orm/mysql2";
+import _mysql from "mysql2/promise";
+import "dotenv/config";
 
 class App {
     /**
@@ -26,6 +29,7 @@ class App {
         this._express = express();
         this._port = port;
         this._apiPrefix = apiPrefix;
+        this._initializeDatabase();
         this._initializeMiddlewares();
         this._initializeControllers(controllers);
     }
@@ -40,6 +44,19 @@ class App {
                 this._express.use(this._apiPrefix, controller.router);
             });
         }
+    }
+    
+    /**
+     * Initialize Database
+     */
+    private async _initializeDatabase(): Promise<void> {
+        const connection = await _mysql.createConnection({
+            host: process.env.APP_DATABASE,
+            user: process.env.APP_DATABASE_USER,
+            password: process.env.APP_DATABASE_PASSWORD,
+            database: process.env.APP_DATABASE_NAME
+        });
+        const database = drizzle(connection);
     }
 
     /**
